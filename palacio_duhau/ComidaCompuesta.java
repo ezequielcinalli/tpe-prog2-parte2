@@ -17,20 +17,29 @@ public class ComidaCompuesta extends ElementoComida {
 
 	@Override
 	public double getCalorias() {
-		// TODO Auto-generated method stub
-		return 0;
+		double suma = 0;
+		for (ElementoComida comida : comidas) {
+			suma += comida.getCalorias();
+		}
+		return suma;
 	}
 
 	@Override
 	public double getPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
+		double suma = 0;
+		for (ElementoComida comida : comidas) {
+			suma += comida.getPrecio();
+		}
+		return suma;
 	}
 
 	@Override
 	public int getPreparacionEnMinutos() {
-		// TODO Auto-generated method stub
-		return 0;
+		int suma = 0;
+		for (ElementoComida comida : comidas) {
+			suma += comida.getPreparacionEnMinutos();
+		}
+		return suma;
 	}
 
 }

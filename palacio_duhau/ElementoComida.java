@@ -47,6 +47,7 @@ public abstract class ElementoComida {
 			ElementoComida otraComida = (ElementoComida) obj;
 			return getNombre().equals(otraComida.getNombre());
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
