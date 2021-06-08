@@ -37,15 +37,6 @@ public class Pedido {
 		this.mozo = mozo;
 	}
 
-	public double getTotal() {
-		double total = 0;
-		for (ElementoComida comida : comidas) {
-			total += comida.getPrecio();
-			total += Cocina.calcularAdicional(comida);
-		}
-		return total;
-	}
-
 	@Override
 	public String toString() {
 		return "Pedido numero de mesa: " + mesa + " , nombre de mozo: " + mozo;

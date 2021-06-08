@@ -2,12 +2,12 @@ package palacio_duhau;
 
 import java.util.ArrayList;
 
-import calculadores.CalculadorAdicional;
+import calculadores.*;
 
 public class Cocina {
 	private ArrayList<EstacionTrabajo> estaciones;
 	private ArrayList<Pedido> pedidos;
-	private static CalculadorAdicional calculador = null;
+	private CalculadorAdicional calculador = null;
 
 	public Cocina() {
 		estaciones = new ArrayList<EstacionTrabajo>();
@@ -27,7 +27,6 @@ public class Cocina {
 			for (EstacionTrabajo e : estaciones) {
 				if (e.aceptaComida(c)) {
 					e.setComida(c);
-					//revisar este return si sale del primer o segundo for
 					return;
 				}
 			}
@@ -39,14 +38,23 @@ public class Cocina {
 			estaciones.add(estacion);
 	}
 
-	public static void setCalculadorAdicional(CalculadorAdicional calc) {
-		Cocina.calculador = calc;
+	public void setCalculadorAdicional(CalculadorAdicional calc) {
+		calculador = calc;
 	}
 
-	public static double calcularAdicional(ElementoComida comida) {
+	public double calcularAdicional(ElementoComida comida) {
 		if (calculador == null)
 			return 0;
 		return calculador.calcularAdicional(comida);
+	}
+
+	public double getTotal(Pedido p) {
+		double total = 0;
+		for (ElementoComida comida : p.getComidas()) {
+			total += comida.getPrecio();
+			total += calcularAdicional(comida);
+		}
+		return total;
 	}
 
 }
