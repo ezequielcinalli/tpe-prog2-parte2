@@ -11,7 +11,7 @@ public class CalculadorAdicionalPorcentaje implements CalculadorAdicional{
 
     @Override
     public double calcularAdicional(ElementoComida comida) {
-        return porcentaje * comida.getPrecio() + comida.getPrecio();
+        return (porcentaje * comida.getPrecio()) / 100;
     }
     
 }

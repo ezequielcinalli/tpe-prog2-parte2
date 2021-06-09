@@ -1,5 +1,6 @@
 package palacio_duhau;
 
+import calculadores.*;
 import criterios.*;
 
 public class PalacioDuhau {
@@ -47,10 +48,14 @@ public class PalacioDuhau {
 		EstacionTrabajo e5 = new EstacionTrabajo();
 		e5.setEspecialidad(new CriterioTrue());
 
+		CalculadorAdicional calc1 = new CalculadorAdicionalSuma(
+			new CalculadorAdicionalPorcentaje(10), new CalculadorAdicionalCondicion(
+				new CriterioPreparacionMayor(20), 80, -10));
+
 		// CREACION PALACIO --------------------------------------------
 		PalacioDuhau palacio = new PalacioDuhau();
-		// reemplazar el null del setCalculador por un new Calculador
-		palacio.getCocina().setCalculadorAdicional(null);
+		
+		palacio.getCocina().setCalculadorAdicional(calc1);
 		palacio.getCocina().agregarEstacion(e1);
 		palacio.getCocina().agregarEstacion(e2);
 		palacio.getCocina().agregarEstacion(e3);

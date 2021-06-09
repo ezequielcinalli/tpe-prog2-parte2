@@ -17,9 +17,9 @@ public class CalculadorAdicionalCondicion implements CalculadorAdicional{
     @Override
     public double calcularAdicional(ElementoComida comida) {
         if (condicion.cumple(comida))
-            return valorCumple + comida.getPrecio();
+            return valorCumple;
         else
-            return valorNoCumple  + comida.getPrecio();
+            return valorNoCumple;
     }
     
 }
