@@ -7,11 +7,12 @@ import calculadores.*;
 public class Cocina {
 	private ArrayList<EstacionTrabajo> estaciones;
 	private ArrayList<Pedido> pedidos;
-	private CalculadorAdicional calculador = null;
+	private CalculadorAdicional calculador;
 
 	public Cocina() {
 		estaciones = new ArrayList<EstacionTrabajo>();
 		pedidos = new ArrayList<Pedido>();
+		calculador = null;
 	}
 
 	public void agregarPedido(Pedido pedido) {
