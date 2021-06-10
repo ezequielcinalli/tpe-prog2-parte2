@@ -28,7 +28,7 @@ public class Cocina {
 			for (EstacionTrabajo e : estaciones) {
 				if (e.aceptaComida(c)) {
 					e.setComida(c);
-					return;
+					break;
 				}
 			}
 		}
